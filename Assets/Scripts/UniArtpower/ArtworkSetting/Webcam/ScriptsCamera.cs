@@ -33,6 +33,8 @@ public class ScriptsCamera : MonoBehaviour
     bool camAvailable;
     WebCamTexture webcamTexture;
     Vector2 LastTextureSize = Vector2.zero;
+    Texture2D lastCapture;
+    int catchCounts = 0;
 
     //public 
     public WebCamTexture WBC => webcamTexture;
@@ -276,11 +278,7 @@ public class ScriptsCamera : MonoBehaviour
         // NOTE - you almost certainly have to do this here:
         yield return new WaitForEndOfFrame(); 
         
-    #if FMSTREAM
         byte[] bytes = GetPhotoBytesFaster(flip);
-    #else
-        byte[] bytes = GetPhotoBytes(flip);
-    #endif
         string encodedText = System.Convert.ToBase64String (bytes);
 
         //Debug.Log($"Saved Base64.");
@@ -310,7 +308,7 @@ public class ScriptsCamera : MonoBehaviour
         // http://docs.unity3d.com/ScriptReference/WaitForEndOfFrame.html
         // be sure to scroll down to the SECOND long example on that doco page 
 
-        Texture2D photo = new Texture2D(webcamTexture.width, webcamTexture.height);
+        Texture2D photo = GetNewTexture(webcamTexture.width, webcamTexture.height);
         if(flip){
 
             int xN = photo.width;
@@ -325,6 +323,8 @@ public class ScriptsCamera : MonoBehaviour
             photo.SetPixels(webcamTexture.GetPixels());
         }
         photo.Apply();
+        photo.name = $"Catch_{catchCounts}";
+        catchCounts++;
 
         //Encode to a PNG
         byte[] bytes = photo.EncodeToJPG();
@@ -332,11 +332,9 @@ public class ScriptsCamera : MonoBehaviour
         return bytes;
     }
 
-#if FMSTREAM
-
     byte[] GetPhotoBytesFaster(bool flip){
 
-        Texture2D photo = new Texture2D(webcamTexture.width, webcamTexture.height);
+        Texture2D photo = GetNewTexture(webcamTexture.width, webcamTexture.height);
         if(flip){
 
             int xN = photo.width;
@@ -351,6 +349,8 @@ public class ScriptsCamera : MonoBehaviour
             photo.SetPixels(webcamTexture.GetPixels());
         }
         photo.Apply();
+        photo.name = $"Catch_{catchCounts}";
+        catchCounts++;
 
         byte[] outputBytes = photo.FMEncodeToJPG(75);
 
@@ -359,7 +359,7 @@ public class ScriptsCamera : MonoBehaviour
 
     async void AsyncGetPhotoBytes(bool flip){
 
-        Texture2D photo = new Texture2D(webcamTexture.width, webcamTexture.height);
+        Texture2D photo = GetNewTexture(webcamTexture.width, webcamTexture.height);
         if(flip){
 
             int xN = photo.width;
@@ -374,6 +374,7 @@ public class ScriptsCamera : MonoBehaviour
             photo.SetPixels(webcamTexture.GetPixels());
         }
         photo.Apply();
+        photo.name = $"Catch_{catchCounts}";
 
         byte[] outputBytes;
         byte[] RawTextureData = photo.GetRawTextureData();
@@ -391,5 +392,12 @@ public class ScriptsCamera : MonoBehaviour
         OnBackgroundBase64Get?.Invoke(encodedText);
     }
 
-#endif
+    Texture2D GetNewTexture(int width, int height){
+        if(lastCapture != null)
+            Destroy(lastCapture);
+
+        lastCapture = new Texture2D(width, height);
+        
+        return lastCapture;
+    }
 }
