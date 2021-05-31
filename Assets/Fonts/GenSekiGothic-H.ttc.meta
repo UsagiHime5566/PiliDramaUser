@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 938762874c54e494caf58f44dfe74826
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: GenSekiGothic TW
+  fontNames:
+  - GenSekiGothic TW
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 1cdd3aa6a11bfee4aa9df4fe184a0a38, type: 3}
+  - {fileID: 12800000, guid: 4372fb09f03867942b4aa93234cc0bc4, type: 3}
+  - {fileID: 12800000, guid: 6b5a753f0f5f7284abb2b997f562bd08, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
