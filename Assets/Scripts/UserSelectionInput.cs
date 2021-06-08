@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UserSelection : MonoBehaviour
+public class UserSelectionInput : MonoBehaviour
 {
     public List<Button> userButtons;
+
     void Start()
     {
         int id = 0;
@@ -13,15 +14,15 @@ public class UserSelection : MonoBehaviour
         {
             int thisId = id;
             item.onClick.AddListener(delegate {
-                Debug.Log($"select :{thisId}");
+                
+                if(!WebSocketClient.IsConnected){
+                    Debug.Log("Socket not ready");
+                    return;
+                }
+
+                GameManager.instance.userManager.SendUserAnswer(thisId);
             });
             id++;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
