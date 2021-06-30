@@ -14,8 +14,8 @@ public class CanvasGroupExtend : MonoBehaviour
     protected Tweener currentTween;
     protected CanvasGroup selfCanvas;
 
-    //public Action OnPanelOpened;
-    //public Action OnPanelClosed;
+    public UnityEngine.Events.UnityEvent OnPanelOpened;
+    public UnityEngine.Events.UnityEvent OnPanelClosed;
 
     public void ClosePanelImmediate(CanvasGroup panel){
         panel.alpha = 0;
@@ -36,6 +36,7 @@ public class CanvasGroupExtend : MonoBehaviour
 
         TweenCallback onComplete = () => {
             currentTween = null;
+            panel.GetComponent<CanvasGroupExtend>()?.OnPanelClosed?.Invoke();
             callback?.Invoke();
         };
         panel.blocksRaycasts = false;
@@ -52,8 +53,8 @@ public class CanvasGroupExtend : MonoBehaviour
             panel.interactable = true;
             panel.blocksRaycasts = true;
             currentTween = null;
+            panel.GetComponent<CanvasGroupExtend>()?.OnPanelOpened?.Invoke();
             callback?.Invoke();
-            //panel.GetComponent<CanvasGroupExtend>()?.OnPanelOpened?.Invoke();
         };
         currentTween = panel.DOFade(1,FadeDuration).OnComplete(onComplete);
     }

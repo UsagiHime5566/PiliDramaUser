@@ -6,6 +6,7 @@ using HimeLib;
 
 public class WebSocketClient : SingletonMono<WebSocketClient>
 {
+    public bool Debug_FakeSocket = false;
     public string address = "ws://127.0.0.1:4649";
     public string proto = "Echo";
     public string str = "5566";
@@ -13,7 +14,18 @@ public class WebSocketClient : SingletonMono<WebSocketClient>
 
     WebSocket socket;
 
-    public static bool IsConnected => instance.socket.ReadyState == WebSocketState.Connecting;
+    public static bool IsConnected {
+        get {
+            if(instance.Debug_FakeSocket)
+                return true;
+            if(instance.socket == null){
+                Debug.Log("WebSocket not Ready");
+                return false;
+            }
+
+            return instance.socket.ReadyState == WebSocketState.Connecting;
+        }
+    }
 
     void StartWebSocket()
     {
@@ -55,7 +67,8 @@ public class WebSocketClient : SingletonMono<WebSocketClient>
 
     private void OnApplicationQuit() {
         // 关闭连接
-        socket.CloseAsync();
+        if(socket != null)
+            socket.CloseAsync();
     }
 
     [ContextMenu("Send Data ~")]

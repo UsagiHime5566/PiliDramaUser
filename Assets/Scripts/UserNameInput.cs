@@ -20,7 +20,13 @@ public class UserNameInput : MonoBehaviour
             return;
         }
 
+        if(string.IsNullOrWhiteSpace(INP_Name.text)){
+            Debug.Log("Name not Correct");
+            return;
+        }
+
         INP_Name.interactable = false;
         GameManager.instance.userManager.SetupUserName(INP_Name.text);
+        GameManager.instance.pageManager.GoToWaitingRoom();
     }
 }

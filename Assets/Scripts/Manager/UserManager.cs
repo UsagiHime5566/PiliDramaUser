@@ -9,19 +9,22 @@ public class UserManager : MonoBehaviour
 {
     public Text TXT_UserList;
 
-    public string UserName;
+    [Header("Assets")]
+    public List<Sprite> UserIcons;
+
+
+    [Header("Host User Infos")]
+    public string userName;
+    public int assetId;
     public int lastSendAnswer;
     public List<int> sendAnswers;
 
 
 
-    public Action OnUsersCountChange;
-
     //Delegates
     public Action<string> OnUserNameSetup;
     public Action<string> OnAnswerSend;
-
-
+    public Action<UserActorData> OnUserCountChanged;
 
 
     QueueMessage qm;
@@ -34,11 +37,10 @@ public class UserManager : MonoBehaviour
 
 
     public void SetupUserName(string _name){
-        UserName = _name;
+        userName = _name;
+        assetId = UnityEngine.Random.Range(0, UserIcons.Count);
 
-        OnUserNameSetup.Invoke(_name);
-
-        //PageManager.instance.GoToGame();
+        OnUserNameSetup?.Invoke(_name);
         
         Debug.Log($"Setup Name to {_name}.");
     }
@@ -51,6 +53,28 @@ public class UserManager : MonoBehaviour
         OnAnswerSend.Invoke(ans.ToString());
 
         Debug.Log($"select :{ans}");
+    }
+
+    void OnRecieveUserAdd(){
+        //add user
+        ReCalcuUsers();
+    }
+
+    void OnUserDisconnect(){
+        //distroy user
+        ReCalcuUsers();
+    }
+
+    void ReCalcuUsers(){
+
+        // new UserActorData data
+        UserActorData temp = new UserActorData();
+        OnUserCountChanged?.Invoke(temp);
+    }
+
+
+    public Sprite GetUserAssetById(int assetId){
+        return UserIcons[UserIcons.Count % assetId];
     }
 
 }
