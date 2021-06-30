@@ -9,6 +9,7 @@ public class PageManager : HimeLib.SingletonMono<PageManager>
     public CanvasGroupExtend PG_InputName;
     public CanvasGroupExtend PG_WaitRoom;
     public CanvasGroupExtend PG_Game;
+    public CanvasGroupExtend PG_Ending;
 
     void Start()
     {
@@ -30,8 +31,16 @@ public class PageManager : HimeLib.SingletonMono<PageManager>
         PG_InputName.CloseSelf();
     }
 
-    public void GoToGame(string _name){
+    public void GoToGame(){
         PG_Game.OpenSelfImmediate();
+        PG_Title.CloseSelf();
+        PG_InputName.CloseSelf();
+        PG_WaitRoom.CloseSelf();
+    }
+
+    public void GoToEnding(){
+        PG_Ending.OpenSelfImmediate();
+        PG_Game.CloseSelf();
         PG_Title.CloseSelf();
         PG_InputName.CloseSelf();
         PG_WaitRoom.CloseSelf();

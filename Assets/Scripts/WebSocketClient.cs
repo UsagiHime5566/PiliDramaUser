@@ -59,6 +59,8 @@ public class WebSocketClient : SingletonMono<WebSocketClient>
 
     void OnMessage(object sender, MessageEventArgs args){
         Debug.Log($"WebSocket message {args.Data}");
+
+        JsonPaser(args.Data);
     }
 
     void OnError(object sender, ErrorEventArgs args){
@@ -74,5 +76,36 @@ public class WebSocketClient : SingletonMono<WebSocketClient>
     [ContextMenu("Send Data ~")]
     void SendData(){
         socket.SendAsync(str);
+    }
+
+
+    void JsonPaser(string json){
+        OnlineData data = JsonUtility.FromJson<OnlineData>(json);
+
+        if(data == null)
+            return;
+
+        if(data.type == OnlineDataParameter.Type_WaitRoomRefresh){
+            GameManager.instance.userManager.ReCalcuUsers(data.usersData);
+        }
+
+        if(data.type == OnlineDataParameter.Type_EnterGame){
+            GameManager.instance.EnterGame();
+        }
+
+        if(data.type == OnlineDataParameter.Type_RecvQuestion){
+            GameManager.instance.RecieveNewQuestion(data.questionData);
+        }
+
+        if(data.type == OnlineDataParameter.Type_Ending){
+            GameManager.instance.EndingGame();
+        }
+    }
+
+
+
+    public void DoEmuRecieve(string json){
+        Debug.Log($"Recieve:\n{json}");
+        JsonPaser(json);
     }
 }

@@ -11,11 +11,13 @@ public class UserManager : MonoBehaviour
 
     [Header("Assets")]
     public List<Sprite> UserIcons;
+    public Sprite GetUserAssetById(int assetId) => UserIcons[UserIcons.Count % assetId];
 
 
     [Header("Host User Infos")]
     public string userName;
     public int assetId;
+    public int readyAnswer;
     public int lastSendAnswer;
     public List<int> sendAnswers;
 
@@ -46,35 +48,35 @@ public class UserManager : MonoBehaviour
     }
 
     
-    public void SendUserAnswer(int ans){
-        lastSendAnswer = ans;
-        sendAnswers.Add(ans);
+    public void SendUserAnswer(){
 
-        OnAnswerSend.Invoke(ans.ToString());
+        lastSendAnswer = readyAnswer;
+        sendAnswers.Add(readyAnswer);
 
-        Debug.Log($"select :{ans}");
-    }
+        OnAnswerSend?.Invoke(readyAnswer.ToString());
 
-    void OnRecieveUserAdd(){
-        //add user
-        ReCalcuUsers();
-    }
+        Debug.Log($"Send Answer :{readyAnswer}");
 
-    void OnUserDisconnect(){
-        //distroy user
-        ReCalcuUsers();
-    }
-
-    void ReCalcuUsers(){
-
-        // new UserActorData data
-        UserActorData temp = new UserActorData();
-        OnUserCountChanged?.Invoke(temp);
+        if(!WebSocketClient.IsConnected){
+            Debug.Log("Socket not ready , answer cannot be send.");
+            return;
+        }
     }
 
 
-    public Sprite GetUserAssetById(int assetId){
-        return UserIcons[UserIcons.Count % assetId];
+
+    // void OnRecieveUserAdd(){
+    //     //add user
+    //     ReCalcuUsers();
+    // }
+
+    // void OnUserDisconnect(){
+    //     //distroy user
+    //     ReCalcuUsers();
+    // }
+
+    public void ReCalcuUsers(UserActorData data){
+        OnUserCountChanged?.Invoke(data);
     }
 
 }

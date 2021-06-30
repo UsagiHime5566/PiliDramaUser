@@ -27,16 +27,3 @@ public class WaitingRoom : MonoBehaviour
         }
     }
 }
-
-
-public class UserActorData
-{
-    public List<UserActor> users;
-}
-
-public class UserActor
-{
-    public string name;
-    public int assetId;
-    public Vector2 pos;
-}

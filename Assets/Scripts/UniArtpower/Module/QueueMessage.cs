@@ -18,6 +18,11 @@ public class QueueMessage
         queueMessage = new Queue<string>();
         maxQueueNum = count;
         TXT_Output = target;
+        
+        if(TXT_Output){
+            TXT_Output.horizontalOverflow = HorizontalWrapMode.Overflow;
+            TXT_Output.verticalOverflow = VerticalWrapMode.Overflow;
+        }
     }
     
     void EnqueueMessage(string x){
