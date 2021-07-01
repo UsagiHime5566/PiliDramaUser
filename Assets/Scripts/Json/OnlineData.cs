@@ -5,7 +5,6 @@ using UnityEngine;
 public static class OnlineDataParameter
 {
     public static string Type_WaitRoomRefresh = "WaitRoomRefresh";
-    public static string Type_EnterGame = "EnterGame";
     public static string Type_RecvQuestion = "RecvQuest";
     public static string Type_Ending = "Ending";
 }

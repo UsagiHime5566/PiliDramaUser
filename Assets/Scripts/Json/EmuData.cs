@@ -11,13 +11,13 @@ public class EmuData : MonoBehaviour
     public WebSocketClient webSocketClient;
 
     public Button EmuButton_UserCount;
-    public Button EmuButton_Start;
+    //public Button EmuButton_Start;
     public Button EmuButton_Question;
     public Button EmuButton_Ending;
 
     void Start(){
         EmuButton_UserCount.onClick.AddListener(EmuReceiveData);
-        EmuButton_Start.onClick.AddListener(EmuGameStart);
+        //EmuButton_Start.onClick.AddListener(EmuGameStart);
         EmuButton_Question.onClick.AddListener(EmuQuestion);
         EmuButton_Ending.onClick.AddListener(EmuEnding);
     }
@@ -26,11 +26,11 @@ public class EmuData : MonoBehaviour
         webSocketClient.DoEmuRecieve(JsonUtility.ToJson(emuOnlineData, false));
     }
 
-    public void EmuGameStart(){
-        OnlineData emuData = new OnlineData();
-        emuData.type = OnlineDataParameter.Type_EnterGame;
-        webSocketClient.DoEmuRecieve(JsonUtility.ToJson(emuData, false));
-    }
+    // public void EmuGameStart(){
+    //     OnlineData emuData = new OnlineData();
+    //     emuData.type = OnlineDataParameter.Type_EnterGame;
+    //     webSocketClient.DoEmuRecieve(JsonUtility.ToJson(emuData, false));
+    // }
 
     public void EmuQuestion(){
         webSocketClient.DoEmuRecieve(JsonUtility.ToJson(emuQuestion, false));

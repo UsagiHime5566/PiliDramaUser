@@ -89,11 +89,8 @@ public class WebSocketClient : SingletonMono<WebSocketClient>
             GameManager.instance.userManager.ReCalcuUsers(data.usersData);
         }
 
-        if(data.type == OnlineDataParameter.Type_EnterGame){
-            GameManager.instance.EnterGame();
-        }
-
         if(data.type == OnlineDataParameter.Type_RecvQuestion){
+            GameManager.instance.EnterGame();
             GameManager.instance.RecieveNewQuestion(data.questionData);
         }
 
