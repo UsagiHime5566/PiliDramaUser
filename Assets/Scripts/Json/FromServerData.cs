@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class OnlineDataParameter
+public static class FromServerDataParameter
 {
     public static string Type_WaitRoomRefresh = "WaitRoomRefresh";
     public static string Type_RecvQuestion = "RecvQuest";
     public static string Type_Ending = "Ending";
 }
 
-
-
 [System.Serializable]
-public class OnlineData
+public class FromServerData
 {
     public string type;
-
     public UserActorData usersData;
     public QuestionData questionData;
 }

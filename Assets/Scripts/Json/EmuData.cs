@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class EmuData : MonoBehaviour
 {
-    public OnlineData emuOnlineData;
-    public OnlineData emuQuestion;
+    public FromServerData emuOnlineData;
+    public FromServerData emuQuestion;
 
     public WebSocketClient webSocketClient;
 
@@ -37,8 +37,8 @@ public class EmuData : MonoBehaviour
     }
 
     public void EmuEnding(){
-        OnlineData emuData = new OnlineData();
-        emuData.type = OnlineDataParameter.Type_Ending;
+        FromServerData emuData = new FromServerData();
+        emuData.type = FromServerDataParameter.Type_Ending;
         webSocketClient.DoEmuRecieve(JsonUtility.ToJson(emuData, false));
     }
 }

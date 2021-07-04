@@ -54,13 +54,23 @@ public class UserManager : MonoBehaviour
         sendAnswers.Add(readyAnswer);
 
         OnAnswerSend?.Invoke(readyAnswer.ToString());
-
         Debug.Log($"Send Answer :{readyAnswer}");
 
         if(!WebSocketClient.IsConnected){
             Debug.Log("Socket not ready , answer cannot be send.");
             return;
         }
+
+        BuildUserAnswerToServer(readyAnswer);
+    }
+
+    void BuildUserAnswerToServer(int answer){
+        
+        FromClinetData data = new FromClinetData();
+        data.type = FromClientDataParameter.Type_SendAnswer;
+        data.answer = answer.ToString();
+        string json = JsonUtility.ToJson(data, false);
+        WebSocketClient.instance.SendData(json);
     }
 
 
