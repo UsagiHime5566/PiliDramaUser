@@ -17308,7 +17308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Debug_FakeSocket: 1
-  address: wss://echo.websocket.org
+  address: ws://127.0.0.1:4649/Echo
   autoInitialize: 1
 --- !u!4 &800787047
 Transform:
@@ -30722,7 +30722,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939896104}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0

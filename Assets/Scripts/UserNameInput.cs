@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,19 +22,21 @@ public class UserNameInput : MonoBehaviour
     }
 
     async void SubmitUserName(){
-        TXT_Connecting.gameObject.SetActive(true);
-        BTN_EnterName.interactable = false;
-        
-        await WebSocketClient.instance.DoConnectAsync();
-
         if(string.IsNullOrWhiteSpace(INP_Name.text)){
             Debug.Log("Name not Correct");
             return;
         }
 
+        TXT_Connecting.gameObject.SetActive(true);
+        BTN_EnterName.interactable = false;
+        
+        await WebSocketClient.instance.DoConnectAsync();
+
         INP_Name.interactable = false;
         GameManager.instance.userManager.SetupUserName(INP_Name.text);
         GameManager.instance.pageManager.GoToWaitingRoom();
+
+        await Task.Delay(200);
         BuildUserInfoToServer(INP_Name.text);
 
         TXT_Connecting.gameObject.SetActive(false);
