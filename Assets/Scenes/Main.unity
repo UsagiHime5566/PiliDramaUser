@@ -5116,7 +5116,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52044118}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -17093,11 +17093,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 48
+    m_Font: {fileID: 12800000, guid: 2e0affa1a6b41c24d9aaf6ea52c611cb, type: 3}
+    m_FontSize: 44
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 4
     m_MaxSize: 48
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -17501,7 +17501,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 2e0affa1a6b41c24d9aaf6ea52c611cb, type: 3}
     m_FontSize: 44
     m_FontStyle: 1
     m_BestFit: 1
@@ -18234,7 +18234,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 2e0affa1a6b41c24d9aaf6ea52c611cb, type: 3}
     m_FontSize: 44
     m_FontStyle: 1
     m_BestFit: 1
@@ -24506,7 +24506,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 2e0affa1a6b41c24d9aaf6ea52c611cb, type: 3}
     m_FontSize: 44
     m_FontStyle: 1
     m_BestFit: 1
@@ -25701,7 +25701,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 2e0affa1a6b41c24d9aaf6ea52c611cb, type: 3}
     m_FontSize: 44
     m_FontStyle: 1
     m_BestFit: 1
