@@ -17463,8 +17463,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -268, y: -449}
-  m_SizeDelta: {x: 305, y: 85}
+  m_AnchoredPosition: {x: -335, y: -449}
+  m_SizeDelta: {x: 345, y: 85}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &825592533
 MonoBehaviour:
@@ -17502,11 +17502,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 48
+    m_FontSize: 44
     m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 48
+    m_BestFit: 1
+    m_MinSize: 12
+    m_MaxSize: 44
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -18196,8 +18196,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 127, y: -449}
-  m_SizeDelta: {x: 305, y: 85}
+  m_AnchoredPosition: {x: 100, y: -449}
+  m_SizeDelta: {x: 345, y: 85}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &917575876
 MonoBehaviour:
@@ -18235,18 +18235,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 48
+    m_FontSize: 44
     m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 48
+    m_BestFit: 1
+    m_MinSize: 12
+    m_MaxSize: 44
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6211\u662F\u7B54\u6848B\n"
+  m_Text: "\u6211\u662F\u7B54\u6848B"
 --- !u!222 &917575878
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24468,8 +24468,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -268, y: -592}
-  m_SizeDelta: {x: 305, y: 85}
+  m_AnchoredPosition: {x: -335, y: -592}
+  m_SizeDelta: {x: 345, y: 85}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1398264218
 MonoBehaviour:
@@ -24507,18 +24507,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 48
+    m_FontSize: 44
     m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 48
+    m_BestFit: 1
+    m_MinSize: 12
+    m_MaxSize: 44
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6211\u662F\u7B54\u6848C\n"
+  m_Text: "\u6211\u662F\u7B54\u6848C"
 --- !u!222 &1398264220
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24545,7 +24545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1411962272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25663,8 +25663,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 127, y: -592}
-  m_SizeDelta: {x: 305, y: 85}
+  m_AnchoredPosition: {x: 100, y: -592}
+  m_SizeDelta: {x: 345, y: 85}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1822863709
 MonoBehaviour:
@@ -25702,18 +25702,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 48
+    m_FontSize: 44
     m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 48
+    m_BestFit: 1
+    m_MinSize: 12
+    m_MaxSize: 44
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6211\u662F\u7B54\u6848D\n"
+  m_Text: "\u6211\u662F\u7B54\u6848D"
 --- !u!222 &1822863711
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30722,7 +30722,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939896104}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0

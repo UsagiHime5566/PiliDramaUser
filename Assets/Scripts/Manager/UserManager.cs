@@ -68,6 +68,7 @@ public class UserManager : MonoBehaviour
         
         FromClinetData data = new FromClinetData();
         data.type = FromClientDataParameter.Type_SendAnswer;
+        data.name = userName;
         data.answer = answer.ToString();
         string json = JsonUtility.ToJson(data, false);
         WebSocketClient.instance.SendData(json);
