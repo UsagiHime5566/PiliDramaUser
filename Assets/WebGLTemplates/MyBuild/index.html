@@ -9,6 +9,10 @@
   <script src="Build/UnityLoader.js"></script>
   <script>
     var gameInstance = UnityLoader.instantiate("gameContainer", "Build/PiliUser.json");
+
+    function InitializeURL() {
+      gameInstance.SendMessage('WebSocketClient', 'SetupURL',"ws://127.0.0.1:4649/Echo");
+    }
   </script>
 </head>
 

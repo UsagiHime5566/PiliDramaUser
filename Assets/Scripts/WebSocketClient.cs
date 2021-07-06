@@ -30,9 +30,22 @@ public class WebSocketClient : SingletonMono<WebSocketClient>
         }
     }
 
+    public void CallWebInitialize(){
+        Application.ExternalCall("InitializeURL");
+    }
+
+    //Call by javascript
+    public void SetupURL(string url){
+        address = url;
+        Debug.Log($"Setup url to : {url}");
+        StartWebSocket();
+    }
+
     void Start(){
+    #if UNITY_EDITOR
         if(autoInitialize)
             StartWebSocket();
+    #endif
     }
 
     void StartWebSocket()

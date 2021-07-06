@@ -15,6 +15,7 @@ public class TitleLayout : MonoBehaviour
     void Start()
     {
         BTN_Start.onClick.AddListener(() => {
+            WebSocketClient.instance.CallWebInitialize();
             GameManager.instance.pageManager.GoToNameInput();
         });
 

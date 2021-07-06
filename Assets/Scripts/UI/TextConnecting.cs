@@ -10,20 +10,27 @@ public class TextConnecting : MonoBehaviour
     public string toShow;
 
     int count = 0;
-    void Start()
+    Coroutine coroutine;
+
+    void Awake()
     {
         if(target == null)
             target = GetComponent<Text>();
-
-        Looping();
     }
 
-    async void Looping(){
-        while(true){
-            await Task.Delay(500);
+    private void OnEnable() {
+        coroutine = StartCoroutine(Looping());
+    }
 
-            if(this == null)
-                return;
+    private void OnDisable() {
+        if(coroutine != null)
+            StopCoroutine(coroutine);
+    }
+
+    WaitForSeconds wait = new WaitForSeconds(0.5f);
+    IEnumerator Looping(){
+        while(true){
+            yield return wait;
             
             target.text = toShow + " ";
             for (int i = 0; i < count; i++)

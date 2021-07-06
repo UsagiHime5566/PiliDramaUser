@@ -36,7 +36,13 @@ public class UserNameInput : MonoBehaviour
         GameManager.instance.userManager.SetupUserName(INP_Name.text);
         GameManager.instance.pageManager.GoToWaitingRoom();
 
-        await Task.Delay(200);
+        StartCoroutine(DelayToServer());
+    }
+
+    //WebGL cannot use Task.Delay
+    IEnumerator DelayToServer(){
+        yield return new WaitForSeconds(0.2f);
+
         BuildUserInfoToServer(INP_Name.text);
 
         TXT_Connecting.gameObject.SetActive(false);
