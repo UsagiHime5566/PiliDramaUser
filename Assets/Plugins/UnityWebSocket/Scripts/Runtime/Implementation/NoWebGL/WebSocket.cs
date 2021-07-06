@@ -185,7 +185,7 @@ namespace UnityWebSocket.NoWebGL
                 {
                     if (sendBuffers.Count <= 0)
                     {
-                        await Task.Delay(1);
+                        await Task.Yield();
                         continue;
                     }
                     buffer = PopBuffer();
@@ -293,7 +293,7 @@ namespace UnityWebSocket.NoWebGL
 
             while (!IsCtsCancel || isSendAsyncRunning || isReceiveAsyncRunning)
             {
-                await Task.Delay(1);
+                await Task.Yield();
             }
 
             Log("Wait For Close End !");

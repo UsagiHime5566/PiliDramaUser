@@ -14,7 +14,7 @@ public class WebSocketClient : SingletonMono<WebSocketClient>
     public bool autoInitialize = true;
     WebSocket socket;
 
-
+    public System.Action<OpenEventArgs> OnSocketOpened;
     public System.Action<CloseEventArgs> OnSocketClose;
 
     public static bool IsConnected {
@@ -60,20 +60,15 @@ public class WebSocketClient : SingletonMono<WebSocketClient>
         socket.OnError += OnError;
     }
 
-    public async Task DoConnectAsync(){
+    public void DoConnectAsync(){
         // 连接
         socket.ConnectAsync();
-
-        while(socket.ReadyState != WebSocketState.Open){
-            await Task.Yield();
-        }
-        await Task.Yield();
-        
-        Debug.Log("Connect success!");
     }
 
     void OnOpen(object sender, OpenEventArgs args){
         Debug.Log($"WebSocket opened");
+
+        OnSocketOpened?.Invoke(args);
     }
 
     void OnClose(object sender, CloseEventArgs args){
@@ -83,9 +78,7 @@ public class WebSocketClient : SingletonMono<WebSocketClient>
     }
 
     void OnMessage(object sender, MessageEventArgs args){
-    #if UNITY_EDITOR
         Debug.Log($"From server : {args.Data}");
-    #endif
 
         JsonPaser(args.Data);
     }

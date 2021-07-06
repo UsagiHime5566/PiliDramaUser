@@ -14,14 +14,11 @@ public class UserNameInput : MonoBehaviour
     void Start()
     {
         BTN_EnterName.onClick.AddListener(SubmitUserName);
-        WebSocketClient.instance.OnSocketClose += UIReset;
+        WebSocketClient.instance.OnSocketOpened += OnConnected;
+        WebSocketClient.instance.OnSocketClose += OnConnectFail;
     }
 
-    void UIReset(UnityWebSocket.CloseEventArgs args){
-        BTN_EnterName.interactable = true;
-    }
-
-    async void SubmitUserName(){
+    void SubmitUserName(){
         if(string.IsNullOrWhiteSpace(INP_Name.text)){
             Debug.Log("Name not Correct");
             return;
@@ -30,7 +27,15 @@ public class UserNameInput : MonoBehaviour
         TXT_Connecting.gameObject.SetActive(true);
         BTN_EnterName.interactable = false;
         
-        await WebSocketClient.instance.DoConnectAsync();
+        WebSocketClient.instance.DoConnectAsync();
+    }
+
+    void OnConnectFail(UnityWebSocket.CloseEventArgs args){
+        BTN_EnterName.interactable = true;
+    }
+
+    void OnConnected(UnityWebSocket.OpenEventArgs args){
+        Debug.Log("Connect success!");
 
         INP_Name.interactable = false;
         GameManager.instance.userManager.SetupUserName(INP_Name.text);
@@ -41,7 +46,7 @@ public class UserNameInput : MonoBehaviour
 
     //WebGL cannot use Task.Delay
     IEnumerator DelayToServer(){
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
 
         BuildUserInfoToServer(INP_Name.text);
 
