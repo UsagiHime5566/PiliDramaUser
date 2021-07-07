@@ -21,9 +21,9 @@ namespace ARWT.Marker{
     public class DetectionManager : Singleton<DetectionManager>{
 
         public delegate void MarkerDetection(MarkerInfo m);
-        public static event MarkerDetection onMarkerDetected;
-        public static event MarkerDetection onMarkerVisible;
-        public static event MarkerDetection onMarkerLost;
+        public static MarkerDetection onMarkerDetected;
+        public static MarkerDetection onMarkerVisible;
+        public static MarkerDetection onMarkerLost;
         
         [System.Obsolete]
         void Start() {

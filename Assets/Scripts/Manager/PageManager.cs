@@ -16,6 +16,7 @@ public class PageManager : HimeLib.SingletonMono<PageManager>
         if(AutoInitializePagesVisible){
             PG_Title.OpenSelfImmediate();
             PG_InputName.OpenSelfImmediate();
+            PG_WaitRoom.OpenSelfImmediate();
             PG_Game.OpenSelfImmediate();
         }
     }
