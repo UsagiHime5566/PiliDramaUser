@@ -71,7 +71,7 @@ AFRAME.registerComponent('cameratransform', {
 
             const size = `${w},${h}`
 
-            unityInstance.SendMessage("Canvas", "setSize", size);
+            //unityInstance.SendMessage("Canvas", "setSize", size);
         }
 
         if(gl != null){
