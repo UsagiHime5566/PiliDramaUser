@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Faces
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 14f84a3acd91b65479bafdefd4a15bcf, type: 3}
+    - {fileID: 2800000, guid: 98811313014daa6448e1387bf936780e, type: 3}
+    - {fileID: 2800000, guid: 3aa8cfa4fce04974c84df6d338deb103, type: 3}
+    - {fileID: 2800000, guid: 38879381c75b54c47b35890e1f6f0009, type: 3}
+    - {fileID: 2800000, guid: 82b4c1bd00331cf489179598804d4598, type: 3}
+    - {fileID: 2800000, guid: 619764da8f04b2248a937ae737935eaa, type: 3}
+    - {fileID: 2800000, guid: d7dd706bc7c769147ad81e50efe1a938, type: 3}
+    - {fileID: 2800000, guid: 0f3b15e934ad7534084a9d4f0905f0d2, type: 3}
+    - {fileID: 2800000, guid: ac3184a908d94444d9601134fb6ba5fc, type: 3}
+    - {fileID: 2800000, guid: 65d493cbff67e4448a1d533e2d0619d5, type: 3}
+    - {fileID: 2800000, guid: 9414bc98802d91a44b46f35bcd63b834, type: 3}
+    - {fileID: 2800000, guid: 7b8778577d2ee1141b3c01d9bde55713, type: 3}
+    - {fileID: 2800000, guid: 2525d407af5c1ab4e947603eb6a4afe2, type: 3}
+    - {fileID: 2800000, guid: d3b7341cd6ddd3a4da2a6f4a1dbebe2f, type: 3}
+    - {fileID: 2800000, guid: e79a9f3b8f37f644188321b0754f2738, type: 3}
+    - {fileID: 2800000, guid: 1c2c375a6a5853449a4c2e61cc9b68c4, type: 3}
+    - {fileID: 2800000, guid: 003c53106ed600443a430d4cc4d886dc, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 003c53106ed600443a430d4cc4d886dc, type: 3}
+  - {fileID: 21300000, guid: 38879381c75b54c47b35890e1f6f0009, type: 3}
+  - {fileID: 21300000, guid: 98811313014daa6448e1387bf936780e, type: 3}
+  - {fileID: 21300000, guid: 3aa8cfa4fce04974c84df6d338deb103, type: 3}
+  - {fileID: 21300000, guid: 2525d407af5c1ab4e947603eb6a4afe2, type: 3}
+  - {fileID: 21300000, guid: 7b8778577d2ee1141b3c01d9bde55713, type: 3}
+  - {fileID: 21300000, guid: 9414bc98802d91a44b46f35bcd63b834, type: 3}
+  - {fileID: 21300000, guid: ac3184a908d94444d9601134fb6ba5fc, type: 3}
+  - {fileID: 21300000, guid: 0f3b15e934ad7534084a9d4f0905f0d2, type: 3}
+  - {fileID: 21300000, guid: 14f84a3acd91b65479bafdefd4a15bcf, type: 3}
+  - {fileID: 21300000, guid: 1c2c375a6a5853449a4c2e61cc9b68c4, type: 3}
+  - {fileID: 21300000, guid: 619764da8f04b2248a937ae737935eaa, type: 3}
+  - {fileID: 21300000, guid: e79a9f3b8f37f644188321b0754f2738, type: 3}
+  - {fileID: 21300000, guid: d7dd706bc7c769147ad81e50efe1a938, type: 3}
+  - {fileID: 21300000, guid: 65d493cbff67e4448a1d533e2d0619d5, type: 3}
+  - {fileID: 21300000, guid: d3b7341cd6ddd3a4da2a6f4a1dbebe2f, type: 3}
+  - {fileID: 21300000, guid: 82b4c1bd00331cf489179598804d4598, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Face_0016_01
+  - Face_0003_14
+  - Face_0001_16
+  - Face_0002_15
+  - Face_0012_05
+  - Face_0011_06
+  - Face_0010_07
+  - Face_0008_09
+  - Face_0007_10
+  - Face_0000_17
+  - Face_0015_02
+  - Face_0005_12
+  - Face_0014_03
+  - Face_0006_11
+  - Face_0009_08
+  - Face_0013_04
+  - Face_0004_13
+  m_Tag: Faces
+  m_IsVariant: 0
