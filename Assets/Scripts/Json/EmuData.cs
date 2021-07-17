@@ -14,12 +14,14 @@ public class EmuData : MonoBehaviour
     //public Button EmuButton_Start;
     public Button EmuButton_Question;
     public Button EmuButton_Ending;
+    public Button EmuButton_Websocket;
 
     void Start(){
         EmuButton_UserCount.onClick.AddListener(EmuReceiveData);
         //EmuButton_Start.onClick.AddListener(EmuGameStart);
         EmuButton_Question.onClick.AddListener(EmuQuestion);
         EmuButton_Ending.onClick.AddListener(EmuEnding);
+        EmuButton_Websocket.onClick.AddListener(EmuWebsocket);
     }
     
     public void EmuReceiveData(){
@@ -40,5 +42,9 @@ public class EmuData : MonoBehaviour
         FromServerData emuData = new FromServerData();
         emuData.type = FromServerDataParameter.Type_Ending;
         webSocketClient.DoEmuRecieve(JsonUtility.ToJson(emuData, false));
+    }
+
+    public void EmuWebsocket(){
+        Application.ExternalCall("ExtraWebsocket");
     }
 }

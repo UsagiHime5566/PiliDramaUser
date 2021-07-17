@@ -59,7 +59,6 @@ public class UserNameInput : MonoBehaviour
         FromClinetData data = new FromClinetData();
         data.type = FromClientDataParameter.Type_UserName;
         data.name = userName;
-        string json = JsonUtility.ToJson(data, false);
-        WebSocketClient.instance.SendData(json);
+        WebSocketClient.instance.SendData(data);
     }
 }

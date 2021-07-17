@@ -11,13 +11,13 @@ public class WaitingRoom : MonoBehaviour
         GameManager.instance.userManager.OnUserCountChanged += OnUserCountChanged;
     }
 
-    public void OnUserCountChanged(UserActorData data){
+    public void OnUserCountChanged(List<UserActor> data){
 
         foreach (Transform child in areaOfUsers.transform) {
             GameObject.Destroy(child.gameObject);
         }
 
-        foreach (var user in data.users)
+        foreach (var user in data)
         {
             if(user == null)
                 continue;

@@ -23,7 +23,7 @@ var WebSocketLibrary =
 		onClose: null,
 
 		/* Debug mode */
-		debug: false
+		debug: true
 	},
 
 	/**
@@ -129,6 +129,7 @@ var WebSocketLibrary =
 			return -2;
 
 		instance.ws = new WebSocket(instance.url);
+		console.log("[JSLIB WebSocket] URL : " + instance.url);
 
 		instance.ws.onopen = function()
 		{

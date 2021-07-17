@@ -4,6 +4,8 @@ using UnityEngine;
 
 public static class FromClientDataParameter
 {
+    public static string Type_Open = "Open";
+    public static string Type_Close = "Close";
     public static string Type_UserName = "MyName";
     public static string Type_SendAnswer = "MyAnswer";
 }
@@ -11,6 +13,7 @@ public static class FromClientDataParameter
 [System.Serializable]
 public class FromClinetData
 {
+    public int uid;
     public string type;
     public string name;
     public string answer;

@@ -67,6 +67,8 @@ namespace UnityWebSocket.NoWebGL
             }
             cts = new CancellationTokenSource();
             socket = new ClientWebSocket();
+            socket.Options.SetRequestHeader("User-Agent", "Unity3D");
+            UnityEngine.Debug.Log("Setup user agent");
             RunConnectAsync();
         }
 

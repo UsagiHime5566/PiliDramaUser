@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class FromServerDataParameter
 {
+    public static string Type_Ping = "Ping";
     public static string Type_WaitRoomRefresh = "WaitRoomRefresh";
     public static string Type_RecvQuestion = "RecvQuest";
     public static string Type_Ending = "Ending";
@@ -13,14 +14,8 @@ public static class FromServerDataParameter
 public class FromServerData
 {
     public string type;
-    public UserActorData usersData;
+    public List<UserActor> usersData;
     public QuestionData questionData;
-}
-
-[System.Serializable]
-public class UserActorData
-{
-    public List<UserActor> users;
 }
 
 [System.Serializable]
@@ -34,6 +29,7 @@ public class UserActor
 [System.Serializable]
 public class QuestionData
 {
+    public string qid;
     public string content;
     public string a;
     public string b;

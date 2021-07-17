@@ -30,6 +30,32 @@ public class WebSocketClient : SingletonMono<WebSocketClient>
         }
     }
 
+    // public async void WebSocket()
+    // {
+    //     try
+    //     {
+    //         ClientWebSocket ws = new ClientWebSocket();
+    //         CancellationToken ct = new CancellationToken();
+    //         //添加header
+    //         //ws.Options.SetRequestHeader("X-Token", "eyJhbGciOiJIUzI1N");
+    //         Uri url = new Uri("ws://121.40.165.18:8800/v1/test/test");
+    //         await ws.ConnectAsync(url, ct);
+    //         await ws.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes("hello")), WebSocketMessageType.Binary, true, ct); //发送数据
+    //         while (true)
+    //         {
+    //             var result = new byte[1024];
+    //             await ws.ReceiveAsync(new ArraySegment<byte>(result), new CancellationToken());//接受数据
+    //             var str = Encoding.UTF8.GetString(result, 0, result.Length);
+    //             Debug.Log(str);
+    //         }
+    //     }
+    //     catch (Exception ex)
+    //     {
+    //         Console.WriteLine(ex.Message);
+    //     }
+    // }
+
+
     public void CallWebInitialize(){
         Application.ExternalCall("InitializeURL");
     }
@@ -93,30 +119,39 @@ public class WebSocketClient : SingletonMono<WebSocketClient>
             socket.CloseAsync();
     }
 
-    public void SendData(string str){
+    public void SendData(FromClinetData clientdata){
         //socket.SendAsync(str); // 发送 string 类型数据
         //socket.SendAsync(bytes); // 发送 byte[] 类型数据
-        socket.SendAsync(str);
+        InternetData data = new InternetData();
+        data.DataType = InternetDataParameter.Type_Client;
+        data.fromClinetData = clientdata;
+        string json = JsonUtility.ToJson(data, false);
+
+        socket.SendAsync(json);
     }
 
 
     void JsonPaser(string json){
-        FromServerData data = JsonUtility.FromJson<FromServerData>(json);
+        try{
+            FromServerData data = JsonUtility.FromJson<FromServerData>(json);
 
-        if(data == null)
-            return;
+            if(data == null)
+                return;
 
-        if(data.type == FromServerDataParameter.Type_WaitRoomRefresh){
-            GameManager.instance.userManager.ReCalcuUsers(data.usersData);
-        }
+            if(data.type == FromServerDataParameter.Type_WaitRoomRefresh){
+                GameManager.instance.userManager.ReCalcuUsers(data.usersData);
+            }
 
-        if(data.type == FromServerDataParameter.Type_RecvQuestion){
-            GameManager.instance.EnterGame();
-            GameManager.instance.RecieveNewQuestion(data.questionData);
-        }
+            if(data.type == FromServerDataParameter.Type_RecvQuestion){
+                GameManager.instance.EnterGame();
+                GameManager.instance.RecieveNewQuestion(data.questionData);
+            }
 
-        if(data.type == FromServerDataParameter.Type_Ending){
-            GameManager.instance.EndingGame();
+            if(data.type == FromServerDataParameter.Type_Ending){
+                GameManager.instance.EndingGame();
+            }
+        } catch (System.Exception e){
+            Debug.LogError(e.Message.ToString());
         }
     }
 

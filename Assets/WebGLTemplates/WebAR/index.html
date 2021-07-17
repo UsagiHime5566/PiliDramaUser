@@ -9,8 +9,25 @@
     <script src="Build/UnityLoader.js"></script>
     <script src="js/app.js"></script>
     <script>
+      var url = 'wss://unique-pili-server.glitch.me';
       function InitializeURL() {
-        unityInstance.SendMessage('WebSocketClient', 'SetupURL',"ws://220.133.215.118:4649/Echo");
+        unityInstance.SendMessage('WebSocketClient', 'SetupURL',url);
+      }
+      
+      var myWs;
+      function ExtraWebsocket() {
+        myWs = new WebSocket(url);
+	      webSocketInit(myWs);
+      }
+      function webSocketInit(ws){
+        ws.onopen = function() {
+          alert('Connect Success!!');
+        };
+        ws.onmessage = function(evt) {
+          alert(evt.data);
+        };
+        ws.onclose = function() {
+        };
       }
     </script>
 

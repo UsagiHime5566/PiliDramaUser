@@ -26,7 +26,7 @@ public class UserManager : MonoBehaviour
     //Delegates
     public Action<string> OnUserNameSetup;
     public Action<string> OnAnswerSend;
-    public Action<UserActorData> OnUserCountChanged;
+    public Action<List<UserActor>> OnUserCountChanged;
 
 
     QueueMessage qm;
@@ -70,8 +70,7 @@ public class UserManager : MonoBehaviour
         data.type = FromClientDataParameter.Type_SendAnswer;
         data.name = userName;
         data.answer = answer.ToString();
-        string json = JsonUtility.ToJson(data, false);
-        WebSocketClient.instance.SendData(json);
+        WebSocketClient.instance.SendData(data);
     }
 
 
@@ -86,7 +85,7 @@ public class UserManager : MonoBehaviour
     //     ReCalcuUsers();
     // }
 
-    public void ReCalcuUsers(UserActorData data){
+    public void ReCalcuUsers(List<UserActor> data){
         OnUserCountChanged?.Invoke(data);
     }
 
