@@ -11,7 +11,7 @@ public class UserManager : MonoBehaviour
 
     [Header("Assets")]
     public List<Sprite> UserIcons;
-    public Sprite GetUserAssetById(int assetId) => UserIcons[UserIcons.Count % assetId];
+    public Sprite GetUserAssetById(int assetId) => UserIcons[assetId % UserIcons.Count];
 
 
     [Header("Host User Infos")]
